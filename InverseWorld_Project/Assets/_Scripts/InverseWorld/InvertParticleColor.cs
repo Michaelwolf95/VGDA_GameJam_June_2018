@@ -24,16 +24,13 @@ namespace VGDA.InverseWorld
             var main = pSystem.main;
             main.startColor = newColor;
 
-
             ParticleSystem.Particle[] particles = new ParticleSystem.Particle[pSystem.particleCount];
             pSystem.GetParticles(particles);
-            foreach (ParticleSystem.Particle p in particles)
+            for (int i = 0; i < particles.Length; i++)
             {
-                var particle = p;
-                particle.startColor = newColor;
+                particles[i].startColor = newColor;
             }
             pSystem.SetParticles(particles, pSystem.particleCount);
-
         }
     }
 }

@@ -19,6 +19,8 @@ public class Respawn : HealthManagerEventListenerBase
     private Rigidbody rigidB;
     private CharacterMovement2D characterMovement;
 
+
+
     protected override void Awake()
     {
         base.Awake();
@@ -37,9 +39,11 @@ public class Respawn : HealthManagerEventListenerBase
     {
         characterMovement.enabled = false;
         rigidB.velocity = Vector3.zero;
+        rigidB.isKinematic = true;
 
         yield return new WaitForSeconds(spawnDelay);
 
+        rigidB.isKinematic = false;
         characterMovement.enabled = true;
         transform.position = CheckpointManager.Instance.CurrentCheckpoint;
         delayCoroutine = null;
