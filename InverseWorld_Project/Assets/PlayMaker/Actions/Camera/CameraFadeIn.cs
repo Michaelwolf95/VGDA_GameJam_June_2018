@@ -33,12 +33,19 @@ namespace HutongGames.PlayMaker.Actions
 		private float startTime;
 		private float currentTime;
 		private Color colorLerp;
-		
-		public override void OnEnter()
+
+	    public override void Awake()
+	    {
+	        base.Awake();
+	        Fsm.HandleOnGUI = true;
+        }
+
+	    public override void OnEnter()
 		{
 			startTime = FsmTime.RealtimeSinceStartup;
 			currentTime = 0f;
 			colorLerp = color.Value;
+		    
 		}
 
 		public override void OnUpdate()

@@ -24,6 +24,8 @@ public class Respawn : HealthManagerEventListenerBase
     [FMODUnity.EventRef]
     public string RespawnAudioEvent = "event:/EVENT";
 
+    public Animator anim;
+    public ParticleSystem deathParticles;
 
     protected override void Awake()
     {
@@ -31,6 +33,7 @@ public class Respawn : HealthManagerEventListenerBase
 
         rigidB = GetComponent<Rigidbody>();
         characterMovement = GetComponent<CharacterMovement2D>();
+        if (!anim) anim = GetComponent<Animator>();
     }
 
     public void DelayRevive()
@@ -61,11 +64,29 @@ public class Respawn : HealthManagerEventListenerBase
     {
         var deathEvent = FMODUnity.RuntimeManager.CreateInstance(DeathAudioEvent);
         deathEvent.start();
+        if (anim)
+        {
+            anim.Play("Die");
+        }
+        if (deathParticles)
+        {
+            deathParticles.Play(true);
+        }
+        PlayMakerFSM.BroadcastEvent("FADE_OUT");
         DelayRevive();
     }
 
     protected override void DoOnRevive()
     {
+        if (anim)
+        {
+            anim.Play("Entry");
+        }
+        if (deathParticles)
+        {
+            deathParticles.Stop(true);
+        }
+        PlayMakerFSM.BroadcastEvent("FADE_IN");
         //transform.position = CheckpointManager.Instance.CurrentCheckpoint;
     }
 }

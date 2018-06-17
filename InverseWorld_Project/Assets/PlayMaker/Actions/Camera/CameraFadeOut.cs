@@ -33,8 +33,14 @@ namespace HutongGames.PlayMaker.Actions
 		private float startTime;
 		private float currentTime;
 		private Color colorLerp;
-		
-		public override void OnEnter()
+
+	    public override void Awake()
+	    {
+	        base.Awake();
+	        Fsm.HandleOnGUI = true;
+	    }
+
+        public override void OnEnter()
 		{
 			startTime = FsmTime.RealtimeSinceStartup;
 			currentTime = 0f;
@@ -71,7 +77,7 @@ namespace HutongGames.PlayMaker.Actions
 			var guiColor = GUI.color;
 			GUI.color = colorLerp;
 			GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height), ActionHelpers.WhiteTexture);
-			GUI.color = guiColor;
+			//GUI.color = guiColor;
 		}
 
 #if UNITY_EDITOR
