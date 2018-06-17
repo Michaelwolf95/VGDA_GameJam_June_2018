@@ -5016,6 +5016,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1987209262}
+        m_MethodName: BlendIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnEnterFrontEvent:
@@ -5975,6 +5986,21 @@ Prefab:
         type: 2}
       propertyPath: m_Damping
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114543062891279948, guid: 98f86d6087f642649a4ff4040780c872,
+        type: 2}
+      propertyPath: DeathAudioEvent
+      value: event:/SFX/Player/sfx_death
+      objectReference: {fileID: 0}
+    - target: {fileID: 114280295230318236, guid: 98f86d6087f642649a4ff4040780c872,
+        type: 2}
+      propertyPath: JumpAudioEvent
+      value: event:/SFX/Player/sfx_jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 114543062891279948, guid: 98f86d6087f642649a4ff4040780c872,
+        type: 2}
+      propertyPath: RespawnAudioEvent
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98f86d6087f642649a4ff4040780c872, type: 2}
@@ -10427,6 +10453,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1987209261}
+  - component: {fileID: 1987209262}
   m_Layer: 12
   m_Name: Instructions
   m_TagString: Untagged
@@ -10449,6 +10476,24 @@ Transform:
   m_Father: {fileID: 1441616320}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1987209262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1987209260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b87fa5c191d3d4184f0695eb68cc2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SubscribableObject: {fileID: 0}
+  textMesh: {fileID: 1685409322}
+  spriteRenderer: {fileID: 1290144898}
+  colorNormal: {r: 0, g: 0, b: 0, a: 1}
+  colorInverted: {r: 1, g: 1, b: 1, a: 1}
+  delay: 1
+  blendDuration: 0.5
 --- !u!1 &2019462458
 GameObject:
   m_ObjectHideFlags: 3
