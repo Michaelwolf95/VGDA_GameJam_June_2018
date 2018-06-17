@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="ParameterPreset" id="{84bf63ad-d261-4a5b-990b-31c28a54e562}">
+        <property name="name">
+            <value>duck_music</value>
+        </property>
+        <relationship name="folder">
+            <destination>{63e655a6-a631-410e-8ce6-389b582c903b}</destination>
+        </relationship>
+        <relationship name="parameter">
+            <destination>{7e5ecf02-7348-4b08-88ce-0f406a15d982}</destination>
+        </relationship>
+    </object>
+    <object class="GameParameter" id="{7e5ecf02-7348-4b08-88ce-0f406a15d982}">
+        <property name="initialValue">
+            <value>0</value>
+        </property>
+        <property name="seekSpeed">
+            <value>0.46000003814697266</value>
+        </property>
+    </object>
+</objects>

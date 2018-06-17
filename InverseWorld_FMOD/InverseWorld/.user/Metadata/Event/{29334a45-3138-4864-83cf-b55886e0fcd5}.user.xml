@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.01.10.00">
     <object class="Event" id="{29334a45-3138-4864-83cf-b55886e0fcd5}">
+        <relationship name="selectables">
+            <destination>{9f8fdad8-5dac-48ea-8490-9d8ba61d047c}</destination>
+        </relationship>
         <relationship name="uiLastParameterSelection">
             <destination>{d42120ca-57a2-4289-ba0f-891acb43356e}</destination>
         </relationship>
@@ -15,11 +18,17 @@
             <value>0.045112781954887216</value>
         </property>
     </object>
+    <object class="ParameterProxy" id="{5e4e1813-af6b-4828-b12a-b8757c789e50}">
+        <property name="uiLastRulerScaleRatio">
+            <value>0.0015290519877675841</value>
+        </property>
+    </object>
     <object class="EventMixerMaster" id="{fb38064a-f349-439c-a37a-d67ef438ee0d}">
         <relationship name="input">
             <destination>{e6c801ae-b3ec-4963-a76d-24376fb8c634}</destination>
         </relationship>
     </object>
+    <object class="AutomationTrack" id="{9f8fdad8-5dac-48ea-8490-9d8ba61d047c}"/>
     <object class="MixerBusEffectChain" id="{295aea58-18de-4439-bb3f-04a9fccdf69d}"/>
     <object class="MixerBusPanner" id="{869aac7a-8d06-406c-867e-61969851bdf3}"/>
     <object class="EventMixerGroup" id="{e6c801ae-b3ec-4963-a76d-24376fb8c634}"/>
