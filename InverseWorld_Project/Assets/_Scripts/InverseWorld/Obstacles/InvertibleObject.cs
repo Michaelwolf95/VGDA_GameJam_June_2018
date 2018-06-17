@@ -43,7 +43,6 @@ namespace VGDA.InverseWorld
         protected override void DoInvert(bool isInverted)
         {
             inverted = isInverted;
-
   
             invertedObj.SetActive(isInverted);
             normalObj.SetActive(!isInverted);
