@@ -32,10 +32,11 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !hasEntered)
         {
-            CheckpointManager.Instance.CurrentCheckpoint = gameObject.transform.position;
+            hasEntered = true;
 
+            CheckpointManager.Instance.CurrentCheckpoint = gameObject.transform.position;
             OnEnter.Invoke();
 
 
@@ -46,7 +47,6 @@ public class Checkpoint : MonoBehaviour
 
             if (!hasEntered && playsSound)
             {
-                hasEntered = true;
                 audioSource.Play();
             }
         }      

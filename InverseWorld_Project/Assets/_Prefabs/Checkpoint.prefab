@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 4976551673285274}
   - component: {fileID: 33387559357684848}
   - component: {fileID: 23561295892144066}
-  - component: {fileID: 135892915270164778}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -69,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1401211395026430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.23, y: 4.97, z: 5.274833}
+  m_LocalPosition: {x: -3.56, y: 0.98, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4923361621465252}
@@ -193,16 +192,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135892915270164778
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1205894562255088}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 4.99, z: 0}
