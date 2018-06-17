@@ -45,8 +45,15 @@ namespace VGDA.InverseWorld
 
 	    protected override void DoInvert(bool isInverted)
 	    {
-	        textMesh.color = (isInverted) ? colorInverted : colorNormal;
-	    }
+	        var color = (isInverted) ? colorInverted : colorNormal;
+	        textMesh.color = new Color(
+	            color.r,
+	            color.g,
+	            color.b,
+	            textMesh.color.a
+	        );
+
+        }
 
 	    public void BlendIn()
 	    {

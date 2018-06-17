@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Cinemachine.Utility;
 using ProBuilder2.Common;
@@ -277,13 +278,14 @@ namespace Cinemachine
             }
             var targ = new Target();
             targ.target = target;
-            targ.weight = 0.9f;
+            targ.weight = 0f;
             targ.radius = 0f;
             //m_Targets.Add(targ);
             var tgs = new List<Target>(m_Targets);
             tgs.Add(targ);
             m_Targets = tgs.ToArray();
             Debug.Log("Added " + target);
+            CoLerpWeighInTarget(targ, 0.1f);
         }
 
         public void RemoveTarget(Transform target)
@@ -304,6 +306,17 @@ namespace Cinemachine
                 tgs.RemoveAt(targIndex);
                 m_Targets = tgs.ToArray();
                 //m_Targets.RemoveAt(targIndex);
+            }
+        }
+
+        private IEnumerator CoLerpWeighInTarget(Target targ, float duration)
+        {
+            float timer = 0f;
+            while (timer < duration)
+            {
+                timer += Time.deltaTime;
+                targ.weight = timer / duration;
+                yield return null;
             }
         }
     }
