@@ -355,11 +355,14 @@ MonoBehaviour:
   jumpVelocity: 7
   groundTolerance: 0.2
   checkGroundForJump: 1
+  anim: {fileID: 0}
   GroundMask:
     serializedVersion: 2
     m_Bits: 0
   SwapTime: 0.15
   moveSpeed: 5
+  capsuleCenterAir: {x: 0, y: 0, z: 0}
+  capsuleHeightAir: 0
 --- !u!114 &449604067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +457,7 @@ MonoBehaviour:
   SubscribableObject: {fileID: 0}
   MusicEventName: event:/Music/music_1test
   invertParameterName: inversion_level
+  InvertEventName: event:/EVENT
 --- !u!114 &1429647243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,7 +536,7 @@ GameObject:
   - component: {fileID: 1473422279}
   - component: {fileID: 1473422278}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Tester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
