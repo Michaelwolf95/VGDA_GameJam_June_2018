@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FMOD.Studio;
+using UnityEngine;
 
 namespace VGDA.InverseWorld
 {
@@ -43,6 +44,11 @@ namespace VGDA.InverseWorld
             {
                 InvertManager.Instance.ToggleInvert();
             }
+        }
+
+        private void OnDestroy()
+        {
+            musicEvent.stop(STOP_MODE.ALLOWFADEOUT);
         }
     }
 }

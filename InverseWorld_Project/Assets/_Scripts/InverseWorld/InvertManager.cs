@@ -22,7 +22,7 @@ public class InvertManager : MonoBehaviour
         {
             Instance = this;
             IsInverted = false;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
