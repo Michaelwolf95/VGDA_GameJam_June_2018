@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.01.10.00">
-    <object class="AudioFile" id="{db10bd78-af45-45d0-8dd0-80652a5598bb}">
+    <object class="AudioFile" id="{f1cec94c-82f8-4eac-a22f-6c2621531ef4}">
         <property name="assetPath">
-            <value>inverseworld_jump1.wav</value>
+            <value>inverseworld_jump4.wav</value>
         </property>
         <property name="frequencyInKHz">
             <value>48</value>
