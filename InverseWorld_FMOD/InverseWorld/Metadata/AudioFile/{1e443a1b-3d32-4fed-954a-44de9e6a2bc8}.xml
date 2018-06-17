@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{1e443a1b-3d32-4fed-954a-44de9e6a2bc8}">
+        <property name="assetPath">
+            <value>inverseworld_music_final.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>32.926833333333335</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{1ace4032-4f71-4179-b17b-7fde07828654}</destination>
+        </relationship>
+    </object>
+</objects>
