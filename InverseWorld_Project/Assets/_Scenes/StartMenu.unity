@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -943,7 +943,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -193.2, y: -0.0000085831}
+  m_AnchoredPosition: {x: -193.2, y: -37.350006}
   m_SizeDelta: {x: 253.6, y: 74.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &788319882
@@ -1477,7 +1477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -238.10004, y: 161.99998}
+  m_AnchoredPosition: {x: -193.2, y: 153.7}
   m_SizeDelta: {x: -476.2, y: -353.85455}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1787168815
@@ -1564,7 +1564,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.6769706, y: 0, z: -72.07755, w: 0}
+  m_margin: {x: -0.6769706, y: 0, z: 2.0270138, w: 0}
   m_textInfo:
     textComponent: {fileID: 1787168815}
     characterCount: 9
