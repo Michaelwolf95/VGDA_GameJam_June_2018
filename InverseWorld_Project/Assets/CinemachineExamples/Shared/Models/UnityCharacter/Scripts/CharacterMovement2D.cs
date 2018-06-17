@@ -30,12 +30,21 @@ namespace Cinemachine.Examples
         private Coroutine castCoroutine = null;
         private string invertedObstacleLayerName = "Inverted";
 
-	    // Use this for initialization
-	    void Start ()
+        private CapsuleCollider capsule;
+        private Vector3 capsuleCenter;
+        private float capsuleHeight;
+        public Vector3 capsuleCenterAir;
+        public float capsuleHeightAir;
+
+        // Use this for initialization
+        void Start ()
 	    {
 	        anim = GetComponent<Animator>();
 	        rigbody = GetComponent<Rigidbody>();
-	        targetrot = transform.rotation;        
+	        targetrot = transform.rotation;
+	        capsule = GetComponent<CapsuleCollider>();
+	        capsuleHeight = capsule.height;
+	        capsuleCenter = capsule.center;
 	    }
 
         void Update()
@@ -99,14 +108,28 @@ namespace Cinemachine.Examples
 	            rigbody.velocity = new Vector3(input.x * moveSpeed, rigbody.velocity.y, 0f);
 	        }
 
-	        if (rigbody.velocity.y > 0f)
+	        if (grounded == false)
 	        {
-	            if ((Input.GetKey(jumpJoystick) || Input.GetKey(jumpKeyboard)) == false  && grounded == false)
+	            if (rigbody.velocity.y > 0f)
 	            {
-	                rigbody.velocity = new Vector3(rigbody.velocity.x, 0f, 0f);
-                }
+	                capsule.center = capsuleCenterAir;
+	                capsule.height = capsuleHeightAir;
+	                if ((Input.GetKey(jumpJoystick) || Input.GetKey(jumpKeyboard)) == false)
+	                {
+	                    rigbody.velocity = new Vector3(rigbody.velocity.x, 0f, 0f);
+	                }
+	            }
+	            else
+	            {
+	                capsule.center = capsuleCenter;
+	                capsule.height = capsuleHeight;
+	            }
             }
-
+            else
+	        {
+	            capsule.center = capsuleCenter;
+	            capsule.height = capsuleHeight;
+	        }
 
             // Jump
             if ((Input.GetKeyDown(jumpJoystick) || Input.GetKeyDown(jumpKeyboard)) && grounded)

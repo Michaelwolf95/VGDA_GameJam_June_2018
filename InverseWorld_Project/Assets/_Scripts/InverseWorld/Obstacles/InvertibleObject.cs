@@ -19,35 +19,35 @@ namespace VGDA.InverseWorld
         [SerializeField] private string normalLayerName = "Default";
         [SerializeField] private string invertedLayerName = "Inverted";
 
+        public bool invertedIsNormal;
+
         private Collider mCollider;
         private Coroutine overlapCoroutine;
 
-        private bool inverted;
-
-
-        private void Update()
+        protected override void Start()
         {
-            if (Input.GetKeyDown(KeyCode.I))
-            {
-                inverted = !inverted;
-                DoInvert(inverted);
-            }
-        }
-
-        private void Start()
-        {
+            base.Start();
             normalObj.SetActive(true);
             invertedObj.SetActive(false);
         }
 
         protected override void DoInvert(bool isInverted)
         {
-            inverted = isInverted;
-
-  
             invertedObj.SetActive(isInverted);
             normalObj.SetActive(!isInverted);
-            gameObject.layer = isInverted ? LayerMask.NameToLayer(invertedLayerName) : LayerMask.NameToLayer(normalLayerName);         
+            bool invert = isInverted;
+            if (invertedIsNormal)
+            {
+                invert = !invert;
+            }
+
+            var value = invert ? LayerMask.NameToLayer(invertedLayerName) : LayerMask.NameToLayer(normalLayerName);
+            //Debug.Log(isInverted + " , " + value + ", " + gameObject.name);
+            if (value >= 0)
+            {
+                gameObject.layer = value;
+            }
+
         }
     }
 }

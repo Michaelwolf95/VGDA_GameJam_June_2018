@@ -1,6 +1,8 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 using Cinemachine.Utility;
+using ProBuilder2.Common;
 
 namespace Cinemachine
 {
@@ -263,6 +265,45 @@ namespace Cinemachine
                 case RotationMode.GroupAverage:
                     transform.rotation = CalculateAverageOrientation();
                     break;
+            }
+        }
+
+        public void AddTarget(Transform target)
+        {
+            foreach (var mTarget in m_Targets)
+            {
+                if(mTarget.target == target)
+                    return;
+            }
+            var targ = new Target();
+            targ.target = target;
+            targ.weight = 0.9f;
+            targ.radius = 0f;
+            //m_Targets.Add(targ);
+            var tgs = new List<Target>(m_Targets);
+            tgs.Add(targ);
+            m_Targets = tgs.ToArray();
+            Debug.Log("Added " + target);
+        }
+
+        public void RemoveTarget(Transform target)
+        {
+            int targIndex = -1;
+            for (int i = 0; i < m_Targets.Length; i++)
+            {
+                if (m_Targets[i].target == target)
+                {
+                    targIndex = i;
+                    break;
+                }
+            }
+
+            if (targIndex >= 0)
+            {
+                var tgs = new List<Target>(m_Targets);
+                tgs.RemoveAt(targIndex);
+                m_Targets = tgs.ToArray();
+                //m_Targets.RemoveAt(targIndex);
             }
         }
     }
