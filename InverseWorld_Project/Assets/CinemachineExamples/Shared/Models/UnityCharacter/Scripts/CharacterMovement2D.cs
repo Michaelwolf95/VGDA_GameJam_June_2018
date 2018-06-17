@@ -54,8 +54,9 @@ namespace Cinemachine.Examples
                 if (castCoroutine == null)
                 {
                     // check if the player is currently overalling an obstacle
-                    Collider[] overllapedColliders = Physics.OverlapCapsule(transform.position + capsule.center + new Vector3(0f, (capsule.height/2f), 0f),
-                        transform.position + capsule.center + new Vector3(0f, (capsule.height / 2f), 0f), 
+                    Collider[] overllapedColliders = Physics.OverlapCapsule(
+                        transform.position + capsule.center + new Vector3(0f, (capsule.height/2f), 0f),
+                        transform.position + capsule.center - new Vector3(0f, (capsule.height / 2f), 0f), 
                         capsule.radius);
                     //Collider[] overllapedColliders = Physics.OverlapCapsule(transform.position, transform.position + Vector3.up * 2, .5f);
 
