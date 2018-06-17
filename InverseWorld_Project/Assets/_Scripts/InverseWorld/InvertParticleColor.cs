@@ -21,6 +21,10 @@ namespace VGDA.InverseWorld
         protected override void DoInvert(bool isInverted)
         {
             Color newColor = (isInverted) ? invertColor : normalColor;
+            var psRenderer = pSystem.GetComponent<ParticleSystemRenderer>();
+            psRenderer.material.SetColor("_TintColor", newColor);
+            psRenderer.material.SetColor("_Color", newColor);
+
             var main = pSystem.main;
             main.startColor = newColor;
 
