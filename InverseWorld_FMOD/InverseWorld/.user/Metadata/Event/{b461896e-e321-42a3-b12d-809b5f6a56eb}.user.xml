@@ -5,7 +5,7 @@
             <value>1</value>
         </property>
         <relationship name="selectables">
-            <destination>{30126af0-f7d8-4e4c-9c29-ab6edfa49688}</destination>
+            <destination>{5ddc5f12-add3-49af-a01b-55dfae7d36e4}</destination>
         </relationship>
         <relationship name="uiLastParameterSelection">
             <destination>{8a522091-b65f-44aa-a9e1-68ea97c81020}</destination>
@@ -20,10 +20,7 @@
     <object class="GroupTrack" id="{9893fa40-5798-4c4b-a0f6-4fc92d67c16b}"/>
     <object class="Timeline" id="{8a522091-b65f-44aa-a9e1-68ea97c81020}">
         <property name="uiLastRulerScaleRatio">
-            <value>0.12351759046890927</value>
-        </property>
-        <property name="uiLastHorizontalScrollBarValue">
-            <value>330</value>
+            <value>0.15439698808613658</value>
         </property>
     </object>
     <object class="ParameterProxy" id="{0921a345-113b-429a-b6af-cf9118bba865}">
@@ -50,7 +47,7 @@
     <object class="SingleSound" id="{0f71becc-7e08-460a-ba76-86c3df9cf225}"/>
     <object class="EventMixerGroup" id="{dc4d7a93-985f-44d2-b9ea-dde51dbcb939}"/>
     <object class="AutomationTrack" id="{b7512272-514c-437a-9041-80362f8e91b1}"/>
-    <object class="SingleSound" id="{30126af0-f7d8-4e4c-9c29-ab6edfa49688}"/>
+    <object class="SingleSound" id="{a7b5a7e4-b87a-40b6-b00e-75b71a07cb35}"/>
     <object class="EventMixerGroup" id="{8b5aa18f-1f13-4157-9ad9-20a5234031ec}"/>
     <object class="AutomationTrack" id="{094d7cb5-134d-44c7-8792-dda11322bb3f}"/>
     <object class="SingleSound" id="{ea7350eb-6960-4c78-a68a-2b5a46ec5919}"/>
