@@ -5,7 +5,7 @@
             <destination>{76d79698-c2a3-4b65-ada0-0a4d01274bae}</destination>
         </relationship>
         <relationship name="changelist">
-            <destination>{49bdf9ce-fe93-4a88-82ef-efd47d3123ce}</destination>
+            <destination>{cd1a893a-6bb9-4e92-bc57-a633a3c28b62}</destination>
         </relationship>
         <relationship name="profilerSessionFolder">
             <destination>{1ddbcaab-c9bf-4d70-ab37-a64bd9a13407}</destination>
@@ -16,5 +16,5 @@
             <destination>{88fa1328-1b23-42bc-b21d-cd7e7170e1b8}</destination>
         </relationship>
     </object>
-    <object class="WorkspaceChangelist" id="{49bdf9ce-fe93-4a88-82ef-efd47d3123ce}"/>
+    <object class="WorkspaceChangelist" id="{cd1a893a-6bb9-4e92-bc57-a633a3c28b62}"/>
 </objects>
