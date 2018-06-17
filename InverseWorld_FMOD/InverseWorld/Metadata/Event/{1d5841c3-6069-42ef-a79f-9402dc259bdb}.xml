@@ -4,6 +4,9 @@
         <property name="name">
             <value>sfx_inverse</value>
         </property>
+        <property name="note">
+            <value>trigger on inverse button</value>
+        </property>
         <property name="outputFormat">
             <value>0</value>
         </property>
