@@ -22,6 +22,9 @@
         <property name="uiLastRulerScaleRatio">
             <value>0.12351759046890927</value>
         </property>
+        <property name="uiLastHorizontalScrollBarValue">
+            <value>330</value>
+        </property>
     </object>
     <object class="ParameterProxy" id="{0921a345-113b-429a-b6af-cf9118bba865}">
         <property name="uiLastRulerScaleRatio">
@@ -44,10 +47,10 @@
     <object class="MixerBusEffectChain" id="{f4fd2167-2a87-4dcd-a635-06a16308fc7b}"/>
     <object class="MixerBusPanner" id="{60f97f87-018a-49d3-9114-2b881972f085}"/>
     <object class="AutomationTrack" id="{9a8ec32c-cf0b-44bf-a7b8-0af44750b471}"/>
-    <object class="SingleSound" id="{30126af0-f7d8-4e4c-9c29-ab6edfa49688}"/>
+    <object class="SingleSound" id="{0f71becc-7e08-460a-ba76-86c3df9cf225}"/>
     <object class="EventMixerGroup" id="{dc4d7a93-985f-44d2-b9ea-dde51dbcb939}"/>
     <object class="AutomationTrack" id="{b7512272-514c-437a-9041-80362f8e91b1}"/>
-    <object class="SingleSound" id="{0f71becc-7e08-460a-ba76-86c3df9cf225}"/>
+    <object class="SingleSound" id="{30126af0-f7d8-4e4c-9c29-ab6edfa49688}"/>
     <object class="EventMixerGroup" id="{8b5aa18f-1f13-4157-9ad9-20a5234031ec}"/>
     <object class="AutomationTrack" id="{094d7cb5-134d-44c7-8792-dda11322bb3f}"/>
     <object class="SingleSound" id="{ea7350eb-6960-4c78-a68a-2b5a46ec5919}"/>
