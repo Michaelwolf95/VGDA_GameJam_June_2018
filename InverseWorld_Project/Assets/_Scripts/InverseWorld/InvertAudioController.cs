@@ -1,4 +1,6 @@
-﻿using FMOD.Studio;
+﻿using System.Collections;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 namespace VGDA.InverseWorld
@@ -9,46 +11,78 @@ namespace VGDA.InverseWorld
         public string MusicEventName = "event:/EVENT";
         public string invertParameterName = "";
 
+        //public StudioEventEmitter musicEventEmitter;
+
         public FMOD.Studio.EventInstance musicEvent;
-        public FMOD.Studio.ParameterInstance invertParameter;
+        public FMOD.Studio.EventInstance invertEvent;
 
         [FMODUnity.EventRef]
         public string InvertEventName = "event:/EVENT";
 
+        private const string DUCK_PARAM_NAME = "duck_music";
+
         protected override void Start()
         {
             base.Start();
+
             musicEvent = FMODUnity.RuntimeManager.CreateInstance(MusicEventName);
-            musicEvent.getParameter(invertParameterName, out invertParameter);
             musicEvent.start();
-            musicEvent.setParameterValue("duck_music", 1f);
+
+            //musicEvent.setParameterValue("duck_music", 1f);
+
             //invertParameter.setValue(1f);
+            invertEvent = FMODUnity.RuntimeManager.CreateInstance(InvertEventName);
         }
         protected override void DoInvert(bool isInverted)
         {
             if (isInverted)
             {
-                invertParameter.setValue(1f);
+                musicEvent.setParameterValue(invertParameterName, 1f);
             }
             else
             {
-                invertParameter.setValue(0f);
+                musicEvent.setParameterValue(invertParameterName, 0f);
+                //invertParameter.setValue(0f);
             }
-            musicEvent = FMODUnity.RuntimeManager.CreateInstance(InvertEventName);
-            musicEvent.start();
+
+            invertEvent.start();
         }
 
-        private void Update()
+        public void SetDuck(float value)
         {
-            if (Input.GetKeyUp(KeyCode.BackQuote))
+            musicEvent.setParameterValue(DUCK_PARAM_NAME, Mathf.Clamp(value, 0f, 1f));
+        }
+
+        public void SetDuckOverTime(float duration)
+        {
+            StopAllCoroutines();
+            StartCoroutine(CoDuckDownOverTime(duration));
+        }
+
+        private IEnumerator CoDuckDownOverTime(float duration)
+        {
+            float timer = 0f;
+            while (timer < duration)
             {
-                InvertManager.Instance.ToggleInvert();
+                timer += Time.deltaTime;
+                SetDuck(Mathf.Lerp(0f, 1f, timer/duration));
+                yield return null;
             }
         }
 
         private void OnDestroy()
         {
-            musicEvent.stop(STOP_MODE.ALLOWFADEOUT);
+            musicEvent.stop(STOP_MODE.IMMEDIATE);
+            if (musicEvent.isValid())
+            {
+                RuntimeManager.DetachInstanceFromGameObject(musicEvent);
+            }
+
+            invertEvent.stop(STOP_MODE.IMMEDIATE);
+            if (invertEvent.isValid())
+            {
+                RuntimeManager.DetachInstanceFromGameObject(invertEvent);
+            }
         }
     }
 }
