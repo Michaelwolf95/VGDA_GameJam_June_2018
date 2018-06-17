@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="ParameterPreset" id="{ba8d4466-d389-4def-9dc4-a3e362161604}">
         <property name="name">
-            <value>Parameter 1</value>
+            <value>inversion_level</value>
         </property>
         <relationship name="folder">
             <destination>{63e655a6-a631-410e-8ce6-389b582c903b}</destination>
