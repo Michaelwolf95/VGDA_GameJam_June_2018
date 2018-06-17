@@ -39,6 +39,7 @@ namespace Cinemachine.Examples
         [FMODUnity.EventRef]
         public string JumpAudioEvent = "event:/EVENT";
 
+        private bool grounded = false;
 
         // Use this for initialization
         void Start ()
@@ -86,7 +87,7 @@ namespace Cinemachine.Examples
                 return;
 	        }
 
-	        bool grounded = IsGrounded();
+	        grounded = IsGrounded();
 
 
             input.x = Input.GetAxis("Horizontal");
@@ -118,10 +119,12 @@ namespace Cinemachine.Examples
 
 	        if (grounded == false)
 	        {
-	            if (rigbody.velocity.y > 0f)
+	            capsule.center = capsuleCenterAir;
+	            capsule.height = capsuleHeightAir;
+                if (rigbody.velocity.y > 0f)
 	            {
-	                capsule.center = capsuleCenterAir;
-	                capsule.height = capsuleHeightAir;
+	                //capsule.center = capsuleCenterAir;
+	                //capsule.height = capsuleHeightAir;
 	                if ((Input.GetKey(jumpJoystick) || Input.GetKey(jumpKeyboard)) == false)
 	                {
 	                    rigbody.velocity = new Vector3(rigbody.velocity.x, 0f, 0f);
@@ -129,8 +132,8 @@ namespace Cinemachine.Examples
 	            }
 	            else
 	            {
-	                capsule.center = capsuleCenter;
-	                capsule.height = capsuleHeight;
+	               // capsule.center = capsuleCenter;
+	               // capsule.height = capsuleHeight;
 	            }
             }
             else
@@ -154,9 +157,25 @@ namespace Cinemachine.Examples
         public bool IsGrounded()
         {
             if (checkGroundForJump)
-                return Physics.Raycast(transform.position, Vector3.down, groundTolerance, GroundMask.value);
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, Vector3.down, out hit, groundTolerance, GroundMask.value))
+                {
+                    if (!grounded)
+                    {
+                        transform.position = hit.point;
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
             else
+            {
                 return true;
+            }
         }
 
 

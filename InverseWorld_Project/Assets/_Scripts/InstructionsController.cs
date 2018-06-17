@@ -60,6 +60,8 @@ namespace VGDA.InverseWorld
 	        if (!hasBlendedIn)
 	        {
 	            hasBlendedIn = true;
+                textMesh.gameObject.SetActive(true);
+                spriteRenderer.gameObject.SetActive(true);
 	            StartCoroutine(CoBlendIn(blendDuration));
 	        }
 	    }

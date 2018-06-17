@@ -5185,7 +5185,7 @@ MonoBehaviour:
   jumpJoystick: 330
   sprintKeyboard: 304
   jumpKeyboard: 32
-  jumpVelocity: 7
+  jumpVelocity: 8
   groundTolerance: 0.2
   checkGroundForJump: 1
   anim: {fileID: 95200973863892644}
@@ -5194,8 +5194,8 @@ MonoBehaviour:
     m_Bits: 4294965759
   SwapTime: 0.15
   moveSpeed: 5
-  capsuleCenterAir: {x: 0, y: 1.27, z: 0}
-  capsuleHeightAir: 0.9623373
+  capsuleCenterAir: {x: 0, y: 0.55, z: 0}
+  capsuleHeightAir: 0.77
   JumpAudioEvent: event:/SFX/Player/sfx_jump
 --- !u!114 &114338282155812166
 MonoBehaviour:
@@ -5743,7 +5743,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.25
+  m_Radius: 0.19
   m_Height: 1.76
   m_Direction: 1
   m_Center: {x: 0, y: 0.87, z: 0}
