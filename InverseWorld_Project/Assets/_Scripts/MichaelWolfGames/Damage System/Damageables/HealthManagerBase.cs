@@ -102,10 +102,12 @@ namespace MichaelWolfGames.DamageSystem
 
         public void Revive()
         {
+            print(IsDead);
             if (!IsDead) return;
             currentHealth = maxHealth;
             OnUpdateHealth(currentHealth);
             HandleRevive();
+           
         }
         public virtual void Kill()
         {
