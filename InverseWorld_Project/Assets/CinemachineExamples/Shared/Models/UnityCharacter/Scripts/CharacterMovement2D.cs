@@ -28,6 +28,7 @@ namespace Cinemachine.Examples
         public float moveSpeed = 5f;
 
         private Coroutine castCoroutine = null;
+        private string invertedObstacleLayerName = "Inverted";
 
 	    // Use this for initialization
 	    void Start ()
@@ -43,7 +44,19 @@ namespace Cinemachine.Examples
             {
                 if (castCoroutine == null)
                 {
-                    castCoroutine = StartCoroutine(CoCastInvertWorld());
+                    // check if the player is currently overalling an obstacle
+                    Collider[] overllapedColliders = Physics.OverlapCapsule(transform.position, transform.position + Vector3.up * 2, .5f);
+
+                    bool overlappingObstacle = false;
+
+                    foreach (var col in overllapedColliders)
+                    {
+                        if (col.gameObject.layer == LayerMask.NameToLayer(invertedObstacleLayerName))
+                            overlappingObstacle = true;
+                    }
+
+                    if(!overlappingObstacle)
+                        castCoroutine = StartCoroutine(CoCastInvertWorld());
                 }
             }
         }

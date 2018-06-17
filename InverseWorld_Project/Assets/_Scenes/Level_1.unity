@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SubscribableObject: {fileID: 0}
-  camera: {fileID: 0}
+  camera: {fileID: 1747380109}
   normalColor: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 1}
   invertColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
 --- !u!1 &1912803184
