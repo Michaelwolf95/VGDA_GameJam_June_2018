@@ -8,6 +8,15 @@ namespace VGDA.InverseWorld
     /// </summary>
     public abstract class InvertSubscriber : SubscriberBase<InvertManager>
     {
+        protected override void FetchSubscribableObject()
+        {
+            base.FetchSubscribableObject();
+            if (SubscribableObject == null && InvertManager.Instance != null)
+            {
+                SubscribableObject = InvertManager.Instance;
+            }
+        }
+
         protected override void SubscribeEvents()
         {
             SubscribableObject.OnInvert += DoInvert;
