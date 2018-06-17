@@ -33,3 +33,4 @@ MonoBehaviour:
   events:
   - FADE_IN
   - FADE_OUT
+  - END_LEVEL
