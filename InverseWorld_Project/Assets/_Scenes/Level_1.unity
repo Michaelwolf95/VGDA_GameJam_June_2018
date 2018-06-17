@@ -215,7 +215,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4921245023048312, guid: f9dee39d229a4bb4087224760ba2d338, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114640801015031044, guid: f9dee39d229a4bb4087224760ba2d338,
         type: 2}
@@ -249,6 +249,17 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 058581a5325d79e41a02d4443f96a53b, type: 2}
+    - target: {fileID: 136696895249700382, guid: f9dee39d229a4bb4087224760ba2d338,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1,
+        type: 2}
+    - target: {fileID: 95487103652067774, guid: f9dee39d229a4bb4087224760ba2d338,
+        type: 2}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114640801015031044, guid: f9dee39d229a4bb4087224760ba2d338, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f9dee39d229a4bb4087224760ba2d338, type: 2}
@@ -306,8 +317,33 @@ Transform:
   m_Children:
   - {fileID: 1667617566}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &416194904 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1766523293591604, guid: f9dee39d229a4bb4087224760ba2d338,
+    type: 2}
+  m_PrefabInternal: {fileID: 101511090}
+--- !u!137 &416194906 stripped
+SkinnedMeshRenderer:
+  m_PrefabParentObject: {fileID: 137876666037209066, guid: f9dee39d229a4bb4087224760ba2d338,
+    type: 2}
+  m_PrefabInternal: {fileID: 101511090}
+--- !u!114 &416194907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 416194904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a56d82777d04a11ac1fafe2a66d8c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SubscribableObject: {fileID: 0}
+  renderer: {fileID: 416194906}
+  normalMaterial: {fileID: 2100000, guid: 058581a5325d79e41a02d4443f96a53b, type: 2}
+  invertedMaterial: {fileID: 2100000, guid: bcbd03b092ded7246a468d8e20be8900, type: 2}
 --- !u!1 &436401187
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +371,7 @@ Transform:
   m_Children:
   - {fileID: 1334237772}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &449604061 stripped
 GameObject:
@@ -360,6 +396,11 @@ MonoBehaviour:
   jumpVelocity: 7
   groundTolerance: 0.2
   checkGroundForJump: 1
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  SwapTime: 0.15
+  moveSpeed: 5
 --- !u!114 &449604067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,7 +562,62 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1613907779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1613907782}
+  - component: {fileID: 1613907781}
+  - component: {fileID: 1613907780}
+  m_Layer: 0
+  m_Name: InvertManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1613907780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1613907779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d520da6f874de2af645a9dea7b94c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SubscribableObject: {fileID: 0}
+  MusicEventName: event:/Music/music_1test
+  invertParameterName: invert_level
+--- !u!114 &1613907781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1613907779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a264e73a0a4874d80ea62ebe1ac4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1613907782
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1613907779}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8, y: 1.9700003, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1667617565
 GameObject:
@@ -614,7 +710,6 @@ GameObject:
   - component: {fileID: 1747380108}
   - component: {fileID: 1747380107}
   - component: {fileID: 1747380106}
-  - component: {fileID: 1747380111}
   - component: {fileID: 1747380112}
   m_Layer: 0
   m_Name: MainCamera
@@ -714,25 +809,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: -0.628, z: 0}
---- !u!114 &1747380111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1747380105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 803b00b1c55094e499a99684ddbd9b57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Title: 2D Target Group
-  m_Description: "Turn this window off by removing the script on Main Camera\n\nUse
-    the arrow keys to move the character\n\nThe Target Group has the player Head and
-    a Cube as targets\n\nThe virtual camera 'CM vcam2D' has a Framing Transposer method
-    on the Body\n\nFraming Transposers will give you the choice to adjust position
-    / FOV based on the distance between the objects in the Target Group\t"
 --- !u!114 &1747380112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,8 +824,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SubscribableObject: {fileID: 0}
   camera: {fileID: 0}
-  normalColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
-  invertColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
+  normalColor: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 1}
+  invertColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
 --- !u!1 &1912803184
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +874,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2023234543 stripped
 Transform:
