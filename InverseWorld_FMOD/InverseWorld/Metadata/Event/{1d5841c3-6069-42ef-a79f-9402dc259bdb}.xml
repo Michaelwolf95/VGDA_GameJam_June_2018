@@ -8,7 +8,7 @@
             <value>trigger on inverse button</value>
         </property>
         <property name="outputFormat">
-            <value>0</value>
+            <value>1</value>
         </property>
         <relationship name="folder">
             <destination>{a4f89baf-d4b6-4c85-835d-4338fb41802b}</destination>
@@ -62,11 +62,18 @@
     <object class="EventAutomatableProperties" id="{92cb4ae2-2225-4c31-b094-33ac0ffce736}"/>
     <object class="MarkerTrack" id="{dea27246-989f-4b9b-8d1f-807c1c45b0a4}"/>
     <object class="GroupTrack" id="{0301586b-81b9-45e1-afd4-08d95ac91335}">
+        <relationship name="modules">
+            <destination>{8663f7d2-3064-4242-858e-2b1086d53a66}</destination>
+        </relationship>
         <relationship name="mixerGroup">
             <destination>{2c280546-6fb4-4dea-82e9-46b29413f62f}</destination>
         </relationship>
     </object>
-    <object class="Timeline" id="{1b5ac630-079f-4bc3-a2e9-ae1bd5b67e32}"/>
+    <object class="Timeline" id="{1b5ac630-079f-4bc3-a2e9-ae1bd5b67e32}">
+        <relationship name="modules">
+            <destination>{8663f7d2-3064-4242-858e-2b1086d53a66}</destination>
+        </relationship>
+    </object>
     <object class="EventMixerMaster" id="{73cfe1d9-7fee-47c4-a023-8ca7984c78c7}">
         <relationship name="effectChain">
             <destination>{b09b1631-1dfa-409f-b47e-3acb8998ead8}</destination>
@@ -84,7 +91,18 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{31b0c258-5062-4e91-92fc-79058da1c343}"/>
+    <object class="SingleSound" id="{8663f7d2-3064-4242-858e-2b1086d53a66}">
+        <property name="length">
+            <value>2.2626041666666667</value>
+        </property>
+        <relationship name="audioFile">
+            <destination>{4e8f0d85-7a49-49a6-ae29-40187f60a531}</destination>
+        </relationship>
+    </object>
     <object class="EventMixerGroup" id="{2c280546-6fb4-4dea-82e9-46b29413f62f}">
+        <property name="volume">
+            <value>-3</value>
+        </property>
         <property name="name">
             <value>Audio 1</value>
         </property>
