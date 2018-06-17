@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="ParameterPreset" id="{b9be8c5b-8574-4767-ad7d-b5ea1eedf757}">
+        <property name="name">
+            <value>duck_jump</value>
+        </property>
+        <relationship name="folder">
+            <destination>{63e655a6-a631-410e-8ce6-389b582c903b}</destination>
+        </relationship>
+        <relationship name="parameter">
+            <destination>{5f1bbce0-4a08-438f-bb98-80dbda49c0f3}</destination>
+        </relationship>
+    </object>
+    <object class="GameParameter" id="{5f1bbce0-4a08-438f-bb98-80dbda49c0f3}">
+        <property name="initialValue">
+            <value>1</value>
+        </property>
+        <property name="seekSpeed">
+            <value>0.83000004291534424</value>
+        </property>
+    </object>
+</objects>
