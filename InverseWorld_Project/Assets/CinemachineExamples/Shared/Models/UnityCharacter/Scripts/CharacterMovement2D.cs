@@ -36,6 +36,10 @@ namespace Cinemachine.Examples
         public Vector3 capsuleCenterAir;
         public float capsuleHeightAir;
 
+        [FMODUnity.EventRef]
+        public string JumpAudioEvent = "event:/EVENT";
+
+
         // Use this for initialization
         void Start ()
 	    {
@@ -139,7 +143,9 @@ namespace Cinemachine.Examples
             if ((Input.GetKeyDown(jumpJoystick) || Input.GetKeyDown(jumpKeyboard)) && grounded)
 	        {
 	            rigbody.velocity = new Vector3(input.x, jumpVelocity, 0f);
-	        }
+	            var fmodEvent = FMODUnity.RuntimeManager.CreateInstance(JumpAudioEvent);
+	            fmodEvent.start();
+            }
 
             anim.SetBool("IsGrounded",grounded);
             anim.SetFloat("Y_Speed", rigbody.velocity.y);
