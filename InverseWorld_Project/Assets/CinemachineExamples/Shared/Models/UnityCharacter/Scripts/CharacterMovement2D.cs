@@ -15,7 +15,7 @@ namespace Cinemachine.Examples
 
         private float speed = 0f;
         private bool isSprinting = false;
-        private Animator anim;
+        public Animator anim;
         private Vector2 input;
         private float velocity;
         private bool headingleft = false;
@@ -39,7 +39,7 @@ namespace Cinemachine.Examples
         // Use this for initialization
         void Start ()
 	    {
-	        anim = GetComponent<Animator>();
+	        if(!anim) anim = GetComponentInChildren<Animator>();
 	        rigbody = GetComponent<Rigidbody>();
 	        targetrot = transform.rotation;
 	        capsule = GetComponent<CapsuleCollider>();
@@ -54,7 +54,10 @@ namespace Cinemachine.Examples
                 if (castCoroutine == null)
                 {
                     // check if the player is currently overalling an obstacle
-                    Collider[] overllapedColliders = Physics.OverlapCapsule(transform.position, transform.position + Vector3.up * 2, .5f);
+                    Collider[] overllapedColliders = Physics.OverlapCapsule(transform.position + capsule.center + new Vector3(0f, (capsule.height/2f), 0f),
+                        transform.position + capsule.center + new Vector3(0f, (capsule.height / 2f), 0f), 
+                        capsule.radius);
+                    //Collider[] overllapedColliders = Physics.OverlapCapsule(transform.position, transform.position + Vector3.up * 2, .5f);
 
                     bool overlappingObstacle = false;
 
