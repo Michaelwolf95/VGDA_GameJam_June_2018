@@ -158,17 +158,22 @@ namespace Cinemachine.Examples
         {
             if (checkGroundForJump)
             {
+                float castOffset = 0.1f;
+                Vector3 offset = new Vector3(0f, castOffset, 0f);
+                Vector3 castPoint = transform.position + offset + transform.TransformVector(capsule.center +Vector3.down*(capsule.height/2f));
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, Vector3.down, out hit, groundTolerance, GroundMask.value))
+                if (Physics.Raycast(castPoint, Vector3.down, out hit, groundTolerance + castOffset, GroundMask.value))
                 {
                     if (!grounded)
                     {
                         transform.position = hit.point;
                     }
+                    Debug.DrawLine(castPoint, castPoint + Vector3.down * groundTolerance, Color.green, 0.25f);
                     return true;
                 }
                 else
                 {
+                    Debug.DrawLine(castPoint, castPoint + Vector3.down * groundTolerance, Color.red, 0.25f);
                     return false;
                 }
             }
