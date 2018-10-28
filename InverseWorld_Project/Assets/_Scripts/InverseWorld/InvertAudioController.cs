@@ -35,8 +35,17 @@ namespace VGDA.InverseWorld
             //musicEvent.setParameterValue("duck_music", 1f);
 
             //invertParameter.setValue(1f);
-            invertEvent = FMODUnity.RuntimeManager.CreateInstance(InvertEventName);
-            invertFailedEvent = FMODUnity.RuntimeManager.CreateInstance(InvertFailedEventName);
+            try
+            {
+                invertEvent = FMODUnity.RuntimeManager.CreateInstance(InvertEventName);
+            }
+            catch { }
+            
+            try
+            {
+                invertFailedEvent = FMODUnity.RuntimeManager.CreateInstance(InvertFailedEventName);
+            }
+            catch { }
         }
 
         protected override void DoInvert(bool isInverted)

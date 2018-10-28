@@ -27,6 +27,8 @@ public class Respawn : HealthManagerEventListenerBase
     public Animator anim;
     public ParticleSystem deathParticles;
 
+    //FMOD.Studio.EventInstance 
+
     protected override void Awake()
     {
         base.Awake();
@@ -80,13 +82,28 @@ public class Respawn : HealthManagerEventListenerBase
     {
         if (anim)
         {
-            anim.Play("Entry");
+            anim.Play("Locomotion");
         }
         if (deathParticles)
         {
             deathParticles.Stop(true);
         }
         PlayMakerFSM.BroadcastEvent("FADE_IN");
+
+        //return;
+        //FMODUnity.RuntimeManager.
+        try
+        {
+            var respawnAudioEvent = FMODUnity.RuntimeManager.CreateInstance(RespawnAudioEvent);
+            if (respawnAudioEvent.isValid())
+            {
+                respawnAudioEvent.start();
+            }
+        }
+        catch
+        {
+
+        }
         //transform.position = CheckpointManager.Instance.CurrentCheckpoint;
     }
 }

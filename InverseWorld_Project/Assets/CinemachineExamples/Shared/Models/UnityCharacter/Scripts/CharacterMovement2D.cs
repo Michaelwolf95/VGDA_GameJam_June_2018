@@ -162,7 +162,7 @@ namespace Cinemachine.Examples
                 Vector3 offset = new Vector3(0f, castOffset, 0f);
                 Vector3 castPoint = transform.position + offset + transform.TransformVector(capsule.center +Vector3.down*(capsule.height/2f));
                 RaycastHit hit;
-                if (Physics.Raycast(castPoint, Vector3.down, out hit, groundTolerance + castOffset, GroundMask.value))
+                if (Physics.Raycast(castPoint, Vector3.down, out hit, groundTolerance + castOffset, GroundMask.value, QueryTriggerInteraction.Ignore))
                 {
                     if (!grounded)
                     {
