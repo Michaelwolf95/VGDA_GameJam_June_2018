@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /// <summary>
 /// 
@@ -13,6 +14,8 @@ public class InvertManager : MonoBehaviour
 
     public delegate void Invert(bool isInverted);
     public event Invert OnInvert;
+
+    public Action OnInvertFailed = delegate { };
 
     public bool IsInverted { get; private set; }
 
@@ -46,6 +49,14 @@ public class InvertManager : MonoBehaviour
         if (OnInvert != null)
         {
             OnInvert.Invoke(IsInverted);
+        }
+    }
+
+    public void InvertFailed()
+    {
+        if (OnInvertFailed != null)
+        {
+            OnInvertFailed();
         }
     }
 }

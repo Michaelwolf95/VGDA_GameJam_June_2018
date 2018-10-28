@@ -15,9 +15,13 @@ namespace VGDA.InverseWorld
 
         public FMOD.Studio.EventInstance musicEvent;
         public FMOD.Studio.EventInstance invertEvent;
+        public FMOD.Studio.EventInstance invertFailedEvent;
 
         [FMODUnity.EventRef]
         public string InvertEventName = "event:/EVENT";
+
+        [FMODUnity.EventRef]
+        public string InvertFailedEventName = "event:/EVENT";
 
         private const string DUCK_PARAM_NAME = "duck_music";
 
@@ -32,7 +36,9 @@ namespace VGDA.InverseWorld
 
             //invertParameter.setValue(1f);
             invertEvent = FMODUnity.RuntimeManager.CreateInstance(InvertEventName);
+            invertFailedEvent = FMODUnity.RuntimeManager.CreateInstance(InvertFailedEventName);
         }
+
         protected override void DoInvert(bool isInverted)
         {
             if (isInverted)
@@ -44,8 +50,19 @@ namespace VGDA.InverseWorld
                 musicEvent.setParameterValue(invertParameterName, 0f);
                 //invertParameter.setValue(0f);
             }
+            if (invertEvent.isValid())
+            {
+                invertEvent.start();
+            }
+        }
 
-            invertEvent.start();
+        protected override void DoInvertFailed()
+        {
+            Debug.Log("Failed to Invert!");
+            if (invertFailedEvent.isValid())
+            {
+                invertFailedEvent.start();
+            }
         }
 
         public void SetDuck(float value)

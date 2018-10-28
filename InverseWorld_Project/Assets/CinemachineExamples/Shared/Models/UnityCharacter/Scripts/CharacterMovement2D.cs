@@ -73,8 +73,8 @@ namespace Cinemachine.Examples
                             overlappingObstacle = true;
                     }
 
-                    if(!overlappingObstacle)
-                        castCoroutine = StartCoroutine(CoCastInvertWorld());
+                    //if(!overlappingObstacle)
+                        castCoroutine = StartCoroutine(CoCastInvertWorld(overlappingObstacle));
                 }
             }
         }
@@ -184,14 +184,21 @@ namespace Cinemachine.Examples
         }
 
 
-        private IEnumerator CoCastInvertWorld()
+        private IEnumerator CoCastInvertWorld(bool isOverlapping)
         {
             anim.updateMode = AnimatorUpdateMode.UnscaledTime;
             anim.Play("DoSwap");
             Time.timeScale = 0f;
             //rigbody.velocity = Vector3.zero;
             yield return new WaitForSecondsRealtime(SwapTime/2f);
-            InvertManager.Instance.ToggleInvert();
+            if (!isOverlapping)
+            {
+                InvertManager.Instance.ToggleInvert();
+            }
+            else
+            {
+                InvertManager.Instance.InvertFailed();
+            }
             yield return new WaitForSecondsRealtime(SwapTime / 2f);
             Time.timeScale = 1f;
             anim.updateMode = AnimatorUpdateMode.Normal;
