@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{d2af701a-84be-4305-8ba6-83c4bb051221}">
+        <property name="assetPath">
+            <value>Wii Shop Channel Music.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>559.34548752834462</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{1ace4032-4f71-4179-b17b-7fde07828654}</destination>
+        </relationship>
+    </object>
+</objects>

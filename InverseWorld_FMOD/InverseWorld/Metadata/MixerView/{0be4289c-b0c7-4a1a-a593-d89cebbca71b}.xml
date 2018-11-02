@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="UiMixerView" id="{0be4289c-b0c7-4a1a-a593-d89cebbca71b}">
+        <property name="name">
+            <value>LiveGameIn</value>
+        </property>
+        <relationship name="assignedStrips">
+            <destination>{0e05d9c7-d270-4141-bc3c-d2c6de7363ef}</destination>
+            <destination>{066f835a-6261-412f-b4cf-45abcdbaa94b}</destination>
+            <destination>{845aa931-ebfc-433f-9950-2448bedf5518}</destination>
+            <destination>{17906317-24fa-4260-9f78-02ea8e5b025c}</destination>
+            <destination>{b5e06b1f-d644-4636-9a8d-8860f752b21e}</destination>
+            <destination>{942cec40-f2e2-49b5-80eb-4d6312a68a39}</destination>
+            <destination>{be08f393-cbd5-43cb-a822-5797324ab628}</destination>
+            <destination>{78a956ad-3fe1-478b-a2ee-f3717c300ef0}</destination>
+            <destination>{819eb044-dbd3-4ed1-bba8-9ddadc456be1}</destination>
+            <destination>{f921c1d4-ef0e-4781-bec9-6b7d9155b75e}</destination>
+        </relationship>
+        <relationship name="mixer">
+            <destination>{8860469b-7909-4f87-aac8-9852e21333f9}</destination>
+        </relationship>
+    </object>
+</objects>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="ParameterPreset" id="{2ff5c690-5291-4d23-b895-6577d48cae43}">
+        <property name="name">
+            <value>fade_splash</value>
+        </property>
+        <relationship name="folder">
+            <destination>{63e655a6-a631-410e-8ce6-389b582c903b}</destination>
+        </relationship>
+        <relationship name="parameter">
+            <destination>{c09a9050-3e25-4efd-bc90-835ef3e9ae93}</destination>
+        </relationship>
+    </object>
+    <object class="GameParameter" id="{c09a9050-3e25-4efd-bc90-835ef3e9ae93}">
+        <property name="initialValue">
+            <value>0</value>
+        </property>
+        <property name="seekSpeed">
+            <value>0.37000003457069397</value>
+        </property>
+    </object>
+</objects>
