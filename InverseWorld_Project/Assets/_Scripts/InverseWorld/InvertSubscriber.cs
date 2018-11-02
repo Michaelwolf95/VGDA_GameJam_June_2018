@@ -20,6 +20,7 @@ namespace VGDA.InverseWorld
         protected override void SubscribeEvents()
         {
             SubscribableObject.OnInvert += DoInvert;
+            SubscribableObject.OnInvertFailed += DoInvertFailed;
         }
 
         protected override void UnsubscribeEvents()
@@ -28,6 +29,11 @@ namespace VGDA.InverseWorld
         }
 
         protected abstract void DoInvert(bool isInverted);
+
+        protected virtual void DoInvertFailed()
+        {
+            // Nothing by default
+        }
 
     }
 }

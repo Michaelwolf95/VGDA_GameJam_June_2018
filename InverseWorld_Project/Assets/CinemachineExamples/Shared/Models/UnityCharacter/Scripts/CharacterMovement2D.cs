@@ -73,8 +73,8 @@ namespace Cinemachine.Examples
                             overlappingObstacle = true;
                     }
 
-                    if(!overlappingObstacle)
-                        castCoroutine = StartCoroutine(CoCastInvertWorld());
+                    //if(!overlappingObstacle)
+                        castCoroutine = StartCoroutine(CoCastInvertWorld(overlappingObstacle));
                 }
             }
         }
@@ -158,17 +158,22 @@ namespace Cinemachine.Examples
         {
             if (checkGroundForJump)
             {
+                float castOffset = 0.1f;
+                Vector3 offset = new Vector3(0f, castOffset, 0f);
+                Vector3 castPoint = transform.position + offset + transform.TransformVector(capsule.center +Vector3.down*(capsule.height/2f));
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, Vector3.down, out hit, groundTolerance, GroundMask.value))
+                if (Physics.Raycast(castPoint, Vector3.down, out hit, groundTolerance + castOffset, GroundMask.value, QueryTriggerInteraction.Ignore))
                 {
                     if (!grounded)
                     {
                         transform.position = hit.point;
                     }
+                    Debug.DrawLine(castPoint, castPoint + Vector3.down * groundTolerance, Color.green, 0.25f);
                     return true;
                 }
                 else
                 {
+                    Debug.DrawLine(castPoint, castPoint + Vector3.down * groundTolerance, Color.red, 0.25f);
                     return false;
                 }
             }
@@ -179,14 +184,21 @@ namespace Cinemachine.Examples
         }
 
 
-        private IEnumerator CoCastInvertWorld()
+        private IEnumerator CoCastInvertWorld(bool isOverlapping)
         {
             anim.updateMode = AnimatorUpdateMode.UnscaledTime;
             anim.Play("DoSwap");
             Time.timeScale = 0f;
             //rigbody.velocity = Vector3.zero;
             yield return new WaitForSecondsRealtime(SwapTime/2f);
-            InvertManager.Instance.ToggleInvert();
+            if (!isOverlapping)
+            {
+                InvertManager.Instance.ToggleInvert();
+            }
+            else
+            {
+                InvertManager.Instance.InvertFailed();
+            }
             yield return new WaitForSecondsRealtime(SwapTime / 2f);
             Time.timeScale = 1f;
             anim.updateMode = AnimatorUpdateMode.Normal;
